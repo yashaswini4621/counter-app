@@ -1,26 +1,31 @@
 
-import React, { useState } from "react";
+import  { useState } from "react"
+import './App.css'
 
-function Counter() {
-  const [count, setCount] = useState(0);
+const App=()=>
+{
+  const [isLoggedin,setIsLoggedIn]=useState(true)
+  const changestate=()=>
+  {
+    setIsLoggedIn(!isLoggedin)
+  }
+  let auth
+  if(isLoggedin===true)
+  {
+    auth=<button onClick ={changestate}>Logout</button>
+  }
+  else{
+    auth=<button onClick={changestate}>Login</button>
+  }
 
-  const increase = () => {
-    setCount(count + 1);
-  };
-
-  const decrease = () => {
-    setCount(count - 1);
-  };
 
   return (
-    <div>
-      <h2>Counter App</h2>
-      <h3>{count}</h3>
-
-      <button onClick={increase}>Increase</button>
-      <button onClick={decrease}>Decrease</button>
+    <div calassName="container">
+    <h1>Hello</h1>
+    {auth}
     </div>
-  );
+    
+  )
 }
 
-export default Counter;
+export default App;
